@@ -2,16 +2,25 @@
 
 Website katalog responsif dalam HTML, CSS, dan JavaScript native. Tanpa framework, dependency browser, database, checkout, atau build bundler. Transaksi dikonsultasikan melalui WhatsApp.
 
-## Jalankan
+## Jalankan & Build
 
 ```sh
-node build.mjs
-node serve.mjs
+npm run build
+npm start
 ```
 
-Buka http://localhost:4173. Alternatif: `npm run dev`. Tidak perlu `npm install`.
+Buka http://localhost:4173. Alternatif untuk dev: `npm run dev`. Tidak perlu `npm install`.
 
-Setelah mengedit sumber konten atau template, jalankan `node build.mjs` lagi. CSS dan JavaScript browser dapat diedit langsung lalu halaman di-refresh. Server mendukung URL bersih, direktori index, dan halaman 404.
+`npm run build` menghasilkan output produksi yang bersih ke dalam folder `dist/`. Server lokal (`npm start`) menyajikan langsung folder `dist/`.
+
+## Deployment (Cloudflare Pages)
+
+Konfigurasi Cloudflare Pages:
+- **Framework preset**: None
+- **Build command**: `npm run build`
+- **Build output directory**: `dist`
+- **Production branch**: `main`
+- **Custom domain**: `https://putriflorist.id`
 
 ## Halaman
 
@@ -35,9 +44,9 @@ Setelah mengedit sumber konten atau template, jalankan `node build.mjs` lagi. CS
 | `site.css` | Styling Putri Florist dan galeri terintegrasi; tidak mengubah hero |
 | `app.js` | Navigasi, filter, galeri & lightbox, formulir, dan CTA mengambang |
 | `src/hero-approved.html` | Snapshot hero final; jangan diubah |
-| `build.mjs` | Menghasilkan 18 HTML statis dan daftar rute |
+| `build.mjs` | Menghasilkan output produksi mandiri di `dist/` (18 HTML statis, scripts, css, assets) |
 
-`index.html`, `produk/**/index.html`, `kategori/**/index.html`, `tentang/index.html`, `kontak/index.html`, `404.html`, dan `routes.json` adalah hasil build. Edit template/data, bukan file hasil build.
+Folder `dist/` adalah hasil build produksi untuk deployment ke Cloudflare Pages. Edit file template/source, bukan isi `dist/`.
 
 ## Data asli dan placeholder
 
@@ -48,7 +57,7 @@ Nomor WhatsApp **+62 857-7371-0841** dan area **Jakarta** berasal dari pemilik. 
 - Alamat, jam operasional, maps, dan media sosial tetap kosong. UI menampilkan keterangan konfirmasi/ketidaktersediaan yang sopan.
 - `nearbyAreas: []`: area sekitar Jakarta tidak dijanjikan sampai dikonfirmasi. Isi hanya wilayah yang benar-benar dilayani.
 - `testimonials: []`: section memakai empty state, tanpa bintang atau kutipan palsu. Ulasan asli memakai format `{ name, quote, approved: true }` dan ditampilkan setelah disetujui.
-- `siteUrl: ''`: isi domain final untuk canonical dan Open Graph absolut. Jangan memasukkan domain contoh. WhatsApp produk otomatis memakai host halaman yang sedang dibuka.
+- `siteUrl`: diatur ke `https://putriflorist.id` untuk canonical dan Open Graph absolut. WhatsApp produk otomatis memakai host halaman yang sedang dibuka.
 
 ## Gambar
 
