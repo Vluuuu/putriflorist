@@ -1,0 +1,50 @@
+{
+  "status": "blocked",
+  "requestedProvider": "Higgsfield",
+  "requestedModel": "Seedance",
+  "attemptedParams": {
+    "model": "seedance_2_5",
+    "mode": "t2v",
+    "aspect_ratio": "16:9",
+    "duration": 15,
+    "resolution": "1080p",
+    "generate_audio": false,
+    "prompt": "Create a refined 15-second live-action cinematic florist brand film for an Indonesian artisan florist, Putri Florist. THREE CLEARLY DIFFERENT SHOTS, 5 seconds each, edited with elegant clean cuts exactly at 5s and 10s. A quiet luxury floral editorial, realistic tactile flowers, natural imperfect garden roses, pale blush pink, warm apricot peach, buttercream, ivory, eucalyptus sage greens. Warm late-afternoon window light, soft shadows, subtle film grain, 35mm film colors, no synthetic gloss. All shots must keep the main flowers and any hands on the RIGHT HALF of the wide frame, between 55% and 85% horizontally. Keep the LEFT 45% softly out of focus, dark olive-brown negative space to allow white website headline text to be placed on top later. No words, no text, no logos, no watermark, no subtitles, no graphic overlays, no collage or split screen. SHOT 1, 0-5s: A lush finished hand-tied bouquet of apricot garden roses, blush roses, cream lisianthus, tiny white flowers and eucalyptus wrapped in textured ivory paper with a silk ribbon, on the RIGHT, at a beautiful softly lit florist atelier. The camera moves very slowly toward the luminous rose petals, shallow depth of field, tiny organic movement in leaves. First frame already gorgeous with an abundant visible bouquet. SHOT 2, 5-10s: Cut to intimate waist-level close-up of a florist's hands carefully tying a champagne silk ribbon around stems of a blush and ivory bouquet at a rustic dark wooden workbench, flowers to the right, face entirely out of frame. A natural careful single hand movement, realistic anatomy, warm backlight, blurred floral atelier in background. SHOT 3, 10-15s: Cut to a sculptural ceramic ivory vase holding a generous airy arrangement of warm peach roses, blush flowers and sage foliage on the RIGHT side of a linen-covered table by a sunlit window, intimate celebration atmosphere, subtle sheer curtain movement. Slow lateral camera glide, exquisite floral composition with negative space on left, same warm color grade as shot 1. Calm romantic commercial art direction, measured gentle motion, photorealistic cinematography. End holding the beautiful flowers. Silent background film."
+  },
+  "error": "Requires plus plan or higher.",
+  "account": {
+    "plan": "free",
+    "credits": 0
+  },
+  "alternativeEstimate": {
+    "model": "seedance_2_0",
+    "duration": 15,
+    "resolution": "1080p",
+    "credits": 135
+  },
+  "poster": {
+    "tool": "Built-in imagegen",
+    "file": "assets/hero-poster.png",
+    "prompt": "Use case: photorealistic-natural. Asset type: wide cinematic florist website hero poster, 16:9 landscape. Primary request: exquisitely photorealistic editorial photograph of an abundant artisan bouquet of warm peach garden roses, pale blush pink roses, airy ivory lisianthus, small white waxflowers and soft eucalyptus. Wrapped loosely in matte ivory paper and a champagne silk ribbon, resting on a weathered wooden florist workbench. Scene: quiet warm florist atelier, tall window beyond the right edge with sheer curtain, muted olive and brown background, a few out-of-focus flowers in background. Composition: bouquet fills RIGHT HALF from x=53% to 95%, large luminous rose heads at upper right, stems and ribbon lower right; LEFT HALF stays dark softly blurred olive-brown atmospheric negative space for large white headline added later in HTML. A hint of tabletop at bottom. Not a flat studio background. Photography: medium close-up 50mm lens, shallow depth of field, dappled soft afternoon sunlight falling across petals from upper right, realistic intricate petals with delicate imperfections, tactile handmade paper, subtle analog film grain. Mood: intimate, romantic, artful, effortless Parisian floral editorial meets Indonesian flower atelier. Color palette: soft warm peach, pink, cream, muted sage, dark warm olive. High-end natural editorial photography, beautiful tonal depth. No people, no text, no logo, no watermark, no UI, no borders, no split screen. Output only the photograph."
+  },
+  "scenes": [
+    {
+      "start": 0,
+      "end": 5,
+      "title": "Mekar",
+      "description": "Detail buket mawar peach, blush, dan ivory."
+    },
+    {
+      "start": 5,
+      "end": 10,
+      "title": "Dirangkai",
+      "description": "Tangan florist mengikat pita sutra pada buket."
+    },
+    {
+      "start": 10,
+      "end": 15,
+      "title": "Bermakna",
+      "description": "Rangkaian selesai dalam vas keramik di meja linen."
+    }
+  ]
+}

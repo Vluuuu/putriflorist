@@ -1,0 +1,12 @@
+{
+  "name": "putri-florist",
+  "private": true,
+  "version": "1.0.0",
+  "description": "Website katalog Putri Florist — HTML, CSS, JavaScript native",
+  "scripts": {
+    "build": "node build.mjs",
+    "start": "node serve.mjs",
+    "dev": "node build.mjs && node serve.mjs",
+    "check": "node scripts/verify.mjs"
+  }
+}
