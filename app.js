@@ -310,28 +310,4 @@
     if (!name || !message) return;
     openWhatsApp(`Halo Putri Florist!\n\nNama: ${name}\nRangkaian: ${values.get('category')}\nTanggal kebutuhan: ${values.get('date') || 'Akan dikonfirmasi'}\n\n${message}\n\nMohon bantuan untuk desain, harga, dan ketersediaannya.\nDari: ${location.origin}/kontak`);
   });
-
-  const floating = document.querySelector('.floating-chat');
-  const hero = document.querySelector('.hero');
-  const footer = document.querySelector('.site-footer');
-  const primaryTargets = [...document.querySelectorAll('[data-contact-form], .product-info .button, .final-cta .button')];
-  const visiblePrimary = new Set();
-  let heroVisible = Boolean(hero);
-  let footerVisible = false;
-  const syncFloating = () => floating.classList.toggle('is-hidden', heroVisible || footerVisible || visiblePrimary.size > 0);
-  syncFloating();
-  const visibility = new IntersectionObserver(entries => {
-    entries.forEach(entry => {
-      if (entry.target === hero) heroVisible = entry.isIntersecting;
-      if (entry.target === footer) footerVisible = entry.isIntersecting;
-      if (primaryTargets.includes(entry.target)) {
-        if (entry.isIntersecting) visiblePrimary.add(entry.target);
-        else visiblePrimary.delete(entry.target);
-      }
-    });
-    syncFloating();
-  }, {threshold: 0});
-  if (hero) visibility.observe(hero);
-  visibility.observe(footer);
-  primaryTargets.forEach(target => visibility.observe(target));
 })();

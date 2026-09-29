@@ -159,9 +159,70 @@
 .footer-social p span { font-size: 12px; color: #636d5b; }
 .footer-bottom { border-top: 1px solid var(--line); margin-top: 55px; padding: 24px 0; display: flex; justify-content: space-between; gap: 15px; font-size: 12px; color: #5a6552; }
 
-.floating-chat { position: fixed; z-index: 18; right: 24px; bottom: 22px; display: flex; align-items: center; justify-content: center; gap: 10px; padding: 14px 22px; border-radius: 28px; background: #394b30; color: #fffdf2; box-shadow: 0 3px 20px #27332522; font-size: 13px; font-weight: 600; text-decoration: none; }
-.floating-chat svg { width: 22px; height: 22px; }
-.floating-chat.is-hidden { opacity: 0; visibility: hidden; pointer-events: none; }
+/* Floating WhatsApp - Selalu tampil di semua halaman dan saat scroll */
+.floating-chat { position: fixed; z-index: 99; right: 24px; bottom: 24px; display: flex; align-items: center; justify-content: center; gap: 10px; padding: 13px 22px; border-radius: 28px; background: #34442b; color: #fffdf2; box-shadow: 0 4px 24px rgba(22, 30, 19, 0.28); font-size: 13px; font-weight: 600; letter-spacing: 0.2px; text-decoration: none; transition: transform .2s ease, background .2s ease; }
+.floating-chat:hover { background: #273420; transform: translateY(-2px); }
+.floating-chat svg { width: 20px; height: 20px; }
+
+/* Hero Image Positioning & Composition Polish */
+.hero-media img,
+.hero-media video {
+  object-fit: cover;
+  object-position: 70% 32%;
+}
+
+/* Section "Ada bunga untuk setiap rasa" (Hero Footnote) Polish */
+.hero-footnote {
+  min-height: 74px;
+  padding: 20px 4.5%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 28px;
+  background: var(--paper);
+  border-bottom: 1px solid var(--line);
+  color: var(--ink);
+}
+.hero-footnote .footnote-intro {
+  display: block;
+  font-family: var(--serif);
+  font-size: 19px;
+  font-style: italic;
+  font-weight: 500;
+  color: #2e382b;
+  letter-spacing: -0.2px;
+  white-space: nowrap;
+}
+.hero-footnote .occasion-list {
+  display: flex;
+  align-items: center;
+  gap: 22px;
+  flex-wrap: wrap;
+}
+.hero-footnote .occasion-list span {
+  font-family: var(--sans);
+  font-size: 13px;
+  font-weight: 500;
+  color: #3e4a36;
+  letter-spacing: 0.3px;
+}
+.hero-footnote .occasion-list span + span::before {
+  content: '✦';
+  margin-right: 22px;
+  font-size: 9px;
+  color: #7b8a6e;
+  vertical-align: middle;
+}
+.hero-footnote .footnote-ending {
+  display: block;
+  font-family: var(--sans);
+  font-size: 11px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  font-weight: 600;
+  color: #526047;
+  white-space: nowrap;
+}
 
 .page-main { padding: 0; }
 .page-intro { padding-bottom: 40px; }
@@ -351,6 +412,19 @@
   .moments-section .section-wrap { gap: 45px; }
   .product-layout { gap: 40px; }
   .footer-grid { gap: 25px; }
+
+  /* Hero adjustments for tablet / small desktop */
+  .hero-media img,
+  .hero-media video {
+    object-position: 72% 28%;
+  }
+  .hero-footnote {
+    padding: 20px 32px;
+    gap: 20px;
+  }
+  .hero-footnote .footnote-ending {
+    display: block;
+  }
 }
 
 @media (max-width: 900px) {
@@ -375,6 +449,44 @@
   .site-header { padding-inline: 21px; gap: 13px; }
   .site-header .brand-name { font-size: 25px; }
   .site-content { margin-inline: -12px; }
+
+  /* Hero image and footnote on mobile */
+  .hero-media img,
+  .hero-media video {
+    object-position: 78% 25%;
+  }
+  .hero-footnote {
+    min-height: auto;
+    padding: 24px 20px;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    gap: 14px;
+  }
+  .hero-footnote .footnote-intro {
+    display: block;
+    font-size: 18px;
+    line-height: 1.35;
+  }
+  .hero-footnote .occasion-list {
+    display: flex;
+    gap: 10px 16px;
+    font-size: 13px;
+    line-height: 1.6;
+  }
+  .hero-footnote .occasion-list span {
+    font-size: 13px;
+  }
+  .hero-footnote .occasion-list span + span::before {
+    margin-right: 16px;
+  }
+  .hero-footnote .footnote-ending {
+    display: block;
+    margin-top: 4px;
+    font-size: 11px;
+    letter-spacing: 1.8px;
+  }
+
   .section-wrap { padding: 62px 24px; }
   .section-head { margin-bottom: 28px; gap: 14px; flex-wrap: wrap; }
   .section-kicker { font-size: 11px; letter-spacing: 1.5px; margin-bottom: 12px; }
@@ -415,7 +527,8 @@
   .footer-column a { min-height: 40px; font-size: 14px; }
   .footer-column p { font-size: 13px; }
   .footer-bottom { flex-direction: column; margin-top: 36px; padding-bottom: 85px; gap: 12px; font-size: 12px; }
-  .floating-chat { bottom: 16px; right: 16px; padding: 13px 18px; font-size: 12px; }
+  .floating-chat { bottom: 18px; right: 18px; padding: 12px 18px; font-size: 13px; gap: 8px; box-shadow: 0 4px 20px rgba(20, 28, 17, 0.32); }
+  .floating-chat svg { width: 18px; height: 18px; }
   .page-intro { padding-top: 32px; padding-bottom: 28px; }
   .breadcrumb { margin-bottom: 24px; font-size: 12px; }
   .page-title { font-size: 44px; letter-spacing: -1.2px; }
@@ -473,6 +586,13 @@
   .page-title { font-size: 38px; letter-spacing: -1px; }
   .gallery-card-title { font-size: 17px; }
   .gallery-preview-title { font-size: 17px; }
+  .hero-media img, .hero-media video { object-position: 80% 22%; }
+  .hero-footnote { padding: 20px 18px; gap: 12px; }
+  .hero-footnote .footnote-intro { font-size: 17px; }
+  .hero-footnote .occasion-list { gap: 8px 14px; }
+  .hero-footnote .occasion-list span { font-size: 12px; }
+  .hero-footnote .occasion-list span + span::before { margin-right: 14px; }
+  .floating-chat { bottom: 16px; right: 16px; padding: 11px 16px; font-size: 12px; }
 }
 
 @media (prefers-reduced-motion:reduce) {
