@@ -62,6 +62,17 @@ for (const asset of ['app.js', 'site-config.js']) {
   new Script(readFileSync(resolve(dist, asset), 'utf8'));
 }
 
+// Validasi keberadaan file SEO & Brand
+assert(existsSync(resolve(dist, 'robots.txt')), 'robots.txt harus ada di dist/');
+assert(existsSync(resolve(dist, 'sitemap.xml')), 'sitemap.xml harus ada di dist/');
+assert(existsSync(resolve(dist, 'favicon.svg')), 'favicon.svg harus ada di dist/');
+
+// Validasi verifikasi startup & rute esensial
+assert(routes.includes('/customize'), 'Route /customize harus ada di routes.json');
+assert(routes.includes('/privacy'), 'Route /privacy harus ada di routes.json');
+assert(routes.includes('/terms'), 'Route /terms harus ada di routes.json');
+assert(home.includes('"foundingDate":"2026-01"') || home.includes('"foundingDate": "2026-01"'), 'Organization schema harus memuat foundingDate 2026-01');
+
 const results = await Promise.all([...internalLinks].map(async route => {
   const response = await fetch(`http://localhost:4173${route}`);
   assert.equal(response.status, 200, `Route failed: ${route}`);

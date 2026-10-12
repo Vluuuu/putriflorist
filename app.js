@@ -310,4 +310,18 @@
     if (!name || !message) return;
     openWhatsApp(`Halo Putri Florist!\n\nNama: ${name}\nRangkaian: ${values.get('category')}\nTanggal kebutuhan: ${values.get('date') || 'Akan dikonfirmasi'}\n\n${message}\n\nMohon bantuan untuk desain, harga, dan ketersediaannya.\nDari: ${location.origin}/kontak`);
   });
+
+  const customizeForm = document.querySelector('[data-customize-form]');
+  if (customizeForm) customizeForm.addEventListener('submit', event => {
+    event.preventDefault();
+    const values = new FormData(customizeForm);
+    const name = String(values.get('name') || '').trim();
+    const category = values.get('category') || 'Rekomendasi Florist';
+    const occasion = values.get('occasion') || 'Momen Spesial';
+    const budget = values.get('budget') || 'Fleksibel / Rekomendasi';
+    const palette = values.get('palette') || 'Bebas / Saran Florist';
+    const recipient = values.get('recipient') || '-';
+    const notes = values.get('notes') || '-';
+    openWhatsApp(`Halo Putri Florist!\n\nSaya ingin konsultasi kustomisasi rangkaian bunga:\n- Pemesan: ${name || 'Pelanggan'}\n- Kategori: ${category}\n- Momen: ${occasion}\n- Penerima: ${recipient}\n- Estimasi Anggaran: ${budget}\n- Nuansa / Warna: ${palette}\n- Catatan Khusus: ${notes}\n\nMohon bantuan rekomendasi konsep floral dan ketersediaannya untuk area ${config.city}.\nDari: ${location.origin}/customize`);
+  });
 })();

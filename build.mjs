@@ -22,16 +22,38 @@ for (const [route, html] of pages) {
   writeFileSync(target, html);
 }
 
-const routesJson = JSON.stringify([...pages.keys()], null, 2);
+const routes = [...pages.keys()];
+const routesJson = JSON.stringify(routes, null, 2);
 writeFileSync(resolve(dist, 'routes.json'), routesJson);
 writeFileSync(resolve(root, 'routes.json'), routesJson);
 
 // Salin file publik browser ke dist
-for (const file of ['site.css', 'app.js', 'site-config.js']) {
+for (const file of ['site.css', 'app.js', 'site-config.js', 'favicon.svg']) {
   copyFileSync(resolve(root, file), resolve(dist, file));
 }
 
-// Salin seluruh assets (termasuk 507 asset gallery) ke dist/assets
+// Salin seluruh assets (termasuk asset galeri) ke dist/assets
 cpSync(resolve(root, 'assets'), resolve(dist, 'assets'), { recursive: true });
 
-console.log(`Built ${pages.size} static HTML pages into dist/. Assets and public scripts bundled. Approved hero preserved.`);
+// Buat robots.txt
+const siteUrl = (context.window.PUTRI_FLORIST.siteUrl || 'https://putriflorist.id').replace(/\/$/, '');
+const robotsTxt = `User-agent: *\nAllow: /\n\nSitemap: ${siteUrl}/sitemap.xml\n`;
+writeFileSync(resolve(dist, 'robots.txt'), robotsTxt);
+writeFileSync(resolve(root, 'robots.txt'), robotsTxt);
+
+// Buat sitemap.xml
+const today = new Date().toISOString().split('T')[0];
+const sitemapRoutes = routes.filter(route => route !== '/404');
+const sitemapXml = `<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+${sitemapRoutes.map(route => {
+  const loc = `${siteUrl}${route === '/' ? '/' : route}`;
+  const priority = route === '/' ? '1.0' : route === '/customize' || route === '/produk' ? '0.9' : '0.8';
+  const changefreq = route === '/' ? 'daily' : 'weekly';
+  return `  <url>\n    <loc>${loc}</loc>\n    <lastmod>${today}</lastmod>\n    <changefreq>${changefreq}</changefreq>\n    <priority>${priority}</priority>\n  </url>`;
+}).join('\n')}
+</urlset>\n`;
+writeFileSync(resolve(dist, 'sitemap.xml'), sitemapXml);
+writeFileSync(resolve(root, 'sitemap.xml'), sitemapXml);
+
+console.log(`Built ${pages.size} static HTML pages into dist/. Assets, robots.txt, sitemap.xml, and scripts bundled.`);

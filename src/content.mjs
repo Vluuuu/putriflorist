@@ -38,3 +38,37 @@ export const faqs = [
   ['Bisa pesan untuk hari yang sama?', 'Ketersediaan pesanan pada hari yang sama perlu diperiksa terlebih dahulu. Sampaikan waktu kebutuhan Anda; pesanan diproses setelah jadwal, bahan, dan pengiriman disepakati.'],
   ['Apakah foto sama dengan rangkaian yang diterima?', 'Foto yang saat ini ditampilkan adalah visual inspirasi yang dibuat dengan AI. Gunakan sebagai referensi suasana dan warna. Desain, jenis bunga, ukuran, serta harga rangkaian akhir dikonfirmasi melalui WhatsApp.'],
 ];
+
+export const companyFacts = [
+  { label: 'Didirikan', value: 'Januari 2026' },
+  { label: 'Lokasi & Basis', value: 'Jakarta, Indonesia' },
+  { label: 'Tahap Bisnis', value: 'Early-stage / Bootstrapped' },
+  { label: 'Fokus Produk', value: 'Digital floral commerce & personalized floral ordering' },
+  { label: 'Kanal Layanan Aktif', value: 'Pemesanan & konsultasi WhatsApp (+62 857-7371-0841)' },
+  { label: 'Rencana AI', value: 'AI-assisted order brief & personalization (dalam pengembangan)' },
+];
+
+export const customizationWorkflow = [
+  { step: '01', title: 'Input Preferensi Personal', text: 'Pelanggan mendeskripsikan momen, penerima, anggaran, nuansa warna, dan gaya rangkaian dalam bahasa natural.' },
+  { step: '02', title: 'Pemetaan Konsep & Parameter', text: 'Sistem menganalisis kebutuhan untuk menyusun parameter konsep bunga (kategori, palet warna, proporsi, dan aksen).' },
+  { step: '03', title: 'Rekomendasi & Kurasi', text: 'Pelanggan meninjau rekomendasi konsep dan dapat menyempurnakan detail sebelum order brief diselesaikan.' },
+  { step: '04', title: 'Perangkaian oleh Florist Nyata', text: 'Structured order brief diteruskan ke florist Putri Florist untuk perangkaian fisik menggunakan bunga segar.' },
+];
+
+export const customizationDemo = {
+  customerInput: 'Bunga papan untuk grand opening coffee shop. Budget sekitar Rp700.000. Warna putih dan navy. Modern, minimal, jangan terlalu ramai.',
+  output: {
+    occasion: 'Grand opening (Pembukaan bisnis)',
+    budget: 'Rp500.000 – Rp750.000',
+    style: 'Modern / Minimal',
+    palette: 'White / Navy',
+    recommended: 'Congratulatory Flower Board (Bunga Papan Modern)',
+    details: [
+      'Tata letak bunga segar dominan putih dengan aksen dedaunan sage',
+      'Panel papan bernuansa navy bersih dengan tipografi elegan',
+      'Komposisi minimalis dan proporsional tanpa dekorasi padat',
+    ],
+    nextStep: 'Structured florist brief siap dikirim via WhatsApp untuk konfirmasi ketersediaan bunga dan jadwal antar.',
+  },
+};
+
