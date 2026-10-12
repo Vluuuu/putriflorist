@@ -34,3 +34,4 @@ Thumbs.db
 .claude/
 .claude-*.tmp
 *.tmp
+.wrangler/
