@@ -40,12 +40,13 @@ export const faqs = [
 ];
 
 export const companyFacts = [
-  { label: 'Didirikan', value: 'Januari 2026' },
+  { label: 'Awal Operasional', value: 'Januari 2026 (Mulai beroperasi)' },
   { label: 'Lokasi & Basis', value: 'Jakarta, Indonesia' },
   { label: 'Tahap Bisnis', value: 'Early-stage / Bootstrapped' },
   { label: 'Fokus Produk', value: 'Digital floral commerce & personalized floral ordering' },
   { label: 'Kanal Layanan Aktif', value: 'Pemesanan & konsultasi WhatsApp (+62 857-7371-0841)' },
-  { label: 'Rencana AI', value: 'AI-assisted order brief & personalization (dalam pengembangan)' },
+  { label: 'Rencana AI', value: 'AI-assisted order brief & personalization (dalam tahap pengembangan)' },
+  { label: 'Status Dokumen', value: 'Usaha rintisan operasional (dokumen badan usaha dapat diverifikasi terpisah)' },
 ];
 
 export const customizationWorkflow = [

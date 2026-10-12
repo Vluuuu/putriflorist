@@ -56,4 +56,23 @@ ${sitemapRoutes.map(route => {
 writeFileSync(resolve(dist, 'sitemap.xml'), sitemapXml);
 writeFileSync(resolve(root, 'sitemap.xml'), sitemapXml);
 
-console.log(`Built ${pages.size} static HTML pages into dist/. Assets, robots.txt, sitemap.xml, and scripts bundled.`);
+// Buat _headers untuk Cloudflare Pages
+const headersContent = `/*
+  X-Frame-Options: SAMEORIGIN
+  X-Content-Type-Options: nosniff
+  Referrer-Policy: strict-origin-when-cross-origin
+  Permissions-Policy: geolocation=(), camera=(), microphone=()
+
+/assets/*
+  Cache-Control: public, max-age=31536000, immutable
+
+/site.css
+  Cache-Control: public, max-age=86400
+
+/app.js
+  Cache-Control: public, max-age=86400
+`;
+writeFileSync(resolve(dist, '_headers'), headersContent);
+writeFileSync(resolve(root, '_headers'), headersContent);
+
+console.log(`Built ${pages.size} static HTML pages into dist/. Assets, robots.txt, sitemap.xml, _headers, and scripts bundled.`);

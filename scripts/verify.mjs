@@ -62,10 +62,11 @@ for (const asset of ['app.js', 'site-config.js']) {
   new Script(readFileSync(resolve(dist, asset), 'utf8'));
 }
 
-// Validasi keberadaan file SEO & Brand
+// Validasi keberadaan file SEO, Security & Brand
 assert(existsSync(resolve(dist, 'robots.txt')), 'robots.txt harus ada di dist/');
 assert(existsSync(resolve(dist, 'sitemap.xml')), 'sitemap.xml harus ada di dist/');
 assert(existsSync(resolve(dist, 'favicon.svg')), 'favicon.svg harus ada di dist/');
+assert(existsSync(resolve(dist, '_headers')), '_headers harus ada di dist/');
 
 // Validasi verifikasi startup & rute esensial
 assert(routes.includes('/customize'), 'Route /customize harus ada di routes.json');
